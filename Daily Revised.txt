@@ -1,0 +1,45 @@
+1) Sort Color
+void sortColors(vector<int>& nums) {
+        int zero = 0, mid = 0, two = nums.size()-1;
+        
+        while(mid <= two){
+            if(nums[mid] == 0){
+                swap(nums[zero], nums[mid]);
+                zero++; mid++;
+            }
+            else if(nums[mid] == 1){
+                mid++;
+            }
+            else{
+                swap(nums[two], nums[mid]);
+                two--;
+            }
+        }
+    }
+
+2) Tree DFS
+ i) Preorder
+ void(TreeNode* root){
+ if(root == NULL)
+   return;
+  cout<root->val<<" ";
+  Preorder(root->left)
+  Preorder(root->right)
+ }
+
+ ii) Inooder
+ void Inorder(TreeNode* root){
+  if(root == NULL)
+   return;
+  Inorder(root->left)
+  cout<root->val<<" ";
+  Inorder(root->right)
+ }
+
+ iii) Postorder
+ void Postorder(TreeNode* root){
+  if(root == NULL)
+   return;
+  Postorder(root->left);
+  Postorder(root->right);
+  cout<<root->val<<" ";
